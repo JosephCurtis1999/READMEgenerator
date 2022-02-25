@@ -76,3 +76,5 @@ const generatemarkdwn = (data) => {
 
 
 }
+
+module.exports = generatemarkdwn;
