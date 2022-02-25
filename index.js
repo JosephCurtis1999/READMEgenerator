@@ -154,3 +154,5 @@ const init = async () => {
         console.log(err);
     }
 }
+
+init();
