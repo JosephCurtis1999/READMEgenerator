@@ -1,6 +1,6 @@
 // function to generate markdown
 
-const generatemarkdwn = (data) => {
+const generateMarkdown = (data) => {
 
     switch (data.license) {
         case 'Apache 2.0':
@@ -31,50 +31,38 @@ const generatemarkdwn = (data) => {
           break;
       }
 
-    //   table of contents
-      let tOC = `\n## Table of Contents\n`
-      if (data.install) { tOC += `* [Installation](#installation)\n`; }
-      if (data.usage) { tOC += `* [Usage](#usage)\n`; }
-      if (data.contrib) { tOC += `* [Contributing](#contributing)\n`; }
-      if (data.test) { tOC += `* [Tests](#tests)\n`; }
-      tOC += `* [License](#license)\n`;
-      if (data.credits) { tOC += `* [Credits](#credits)\n`; }
-      tOC += `* [Questions](#questions)\n`;
 
-      let readmeTemplate = '# ${data.title}\n';
-      readmeTemplate += `\n${licenseBadge}\n\n---\n`;
-      readmeTemplate += tOC;
+    return `
+    # ${data.title}
+   
+    ## Description
+    ${data.description}
 
-      if (data.install) {
-        readmeTemplate += `\n## Installation\n${data.installNotes}\n`;
-      }
+    ## Installation Instructions
+    ${data.install}
+    
+    ## Usage Information
+    ${data.usage}
+    
+    ## Contribution Guidelines
+    ${data.contrib}
 
-      if (data.usage) {
-        readmeTemplate += `\n## Usage\n${data.usageInfo}\n`;
-      }
+    ## Test Instructions
+    ${data.test}
+    
+    ## License Information
+    ${data.license}
 
-      if (data.contrib) {
-        readmeTemplate += `\n## Contributing\n${data.contribNotes}\n`;
-      }
+    ## Credits
+    ${data.credits}
 
-      if (data.test) {
-        readmeTemplate += `\n## Tests\n${data.testNotes}\n`;
-      }
-
-      readmeTemplate += `\n## License \nLicensed under the ${data.license} License. Copyright \u00A9 ${year.getFullYear()}\n`;
-
-      if (data.credits) {
-          readmeTemplate += `\n## Credits\n* ${data.creditData}\n`;
-          if (data.moreCredits != []) {
-            for (const value of data.moreCredits) {
-              readmeTemplate += `\n* ${value.moreCreditData}\n`;
-            }
-          }
-        }
-      
-    return readmeTemplate;
+    ## Github
+    ${data.GitHub}
+    
+  `;
+  
 
 
 }
 
-module.exports = generatemarkdwn;
+module.exports = generateMarkdown;

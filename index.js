@@ -2,8 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-inquirer.registerPrompt('recursive', require('./separatejs/generatemarkdwn.js'));
-const generatemarkdwn = require('./separatejs/recursiveprompts.js')
+const generateMarkdown = require('./separatejs/generatemarkdwn.js')
 
 const welcome = [
     { type: 'confirm',
@@ -25,7 +24,7 @@ Image   ![alt text](image.jpg)
 \n`);
 
 const success = chalk.greenBright(`
-Congratulations! README Generated! It's in the Output folder
+Congratulations! README Generated!
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~// 
 `);
 
@@ -36,11 +35,6 @@ const questions = [
         type: 'input',
         name: 'title',
         message: 'What is the title of your project?',
-    },
-    {
-        type: 'input',
-        name: 'GitHub',
-        message: 'What is your GitHub username?',
     },
     {
         type: 'input',
@@ -119,26 +113,15 @@ const questions = [
         }
     },
     {
-        type: 'recursive',
-        prefix: '\b',
-        name: 'moreCredits',
-        message: `Would you like to add more credits to the repo?`,
-        when: function (answers) {
-            return answers.creditData;
-        },
-        prompts: [
-            {
-                type: 'input',
-                name: 'moreCreditData',
-                message: 'Please add your credits',
-            },
-        ]
+        type: 'input',
+        name: 'GitHub',
+        message: 'What is your GitHub username?',
     },
 ]
 
 // write readME file function 
 
-const writeFile = (fileName, data) => {
+const writetoFile = (fileName, data) => {
     fs.writeFile(fileName, data, (err) =>
     err? console.error(err) : console.log(success)
     );
@@ -149,10 +132,12 @@ const init = async () => {
         await inquirer.prompt(welcome);
         console.log(letsbegin);
         const data = await inquirer.prompt(questions);
-        writeFile('./ouput/README.md', generatemarkdwn(data));
+        writetoFile("README.md", generateMarkdown(data));
     } catch (err) {
         console.log(err);
     }
 }
+
+
 
 init();
