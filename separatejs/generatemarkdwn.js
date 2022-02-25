@@ -43,6 +43,15 @@ const generatemarkdwn = (data) => {
 
       let readmeTemplate = '# ${data.title}\n';
       readmeTemplate += `\n${licenseBadge}\n\n---\n`;
+      readmeTemplate += tOC;
+
+      if (data.install) {
+        readmeTemplate += `\n## Installation\n${data.installNotes}\n`;
+      }
+
+      if (data.usage) {
+        readmeTemplate += `\n## Usage\n${data.usageInfo}\n`;
+      }
 
 
 }
