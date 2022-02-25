@@ -63,5 +63,16 @@ const generatemarkdwn = (data) => {
 
       readmeTemplate += `\n## License \nLicensed under the ${data.license} License. Copyright \u00A9 ${year.getFullYear()}\n`;
 
+      if (data.credits) {
+          readmeTemplate += `\n## Credits\n* ${data.creditData}\n`;
+          if (data.moreCredits != []) {
+            for (const value of data.moreCredits) {
+              readmeTemplate += `\n* ${value.moreCreditData}\n`;
+            }
+          }
+        }
+      
+    return readmeTemplate;
+
 
 }
