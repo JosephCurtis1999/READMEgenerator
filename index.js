@@ -147,7 +147,7 @@ const writeFile = (fileName, data) => {
 const init = async () => {
     try {
         await inquirer.prompt(welcome);
-        console.log(letsGo);
+        console.log(letsbegin);
         const data = await inquirer.prompt(questions);
         writeFile('./ouput/README.md', generatemarkdwn(data));
     } catch (err) {
