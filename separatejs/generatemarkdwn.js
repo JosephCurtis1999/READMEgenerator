@@ -41,5 +41,8 @@ const generatemarkdwn = (data) => {
       if (data.credits) { tOC += `* [Credits](#credits)\n`; }
       tOC += `* [Questions](#questions)\n`;
 
+      let readmeTemplate = '# ${data.title}\n';
+      readmeTemplate += `\n${licenseBadge}\n\n---\n`;
+
 
 }
