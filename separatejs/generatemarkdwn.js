@@ -31,5 +31,15 @@ const generatemarkdwn = (data) => {
           break;
       }
 
+    //   table of contents
+      let tOC = `\n## Table of Contents\n`
+      if (data.install) { tOC += `* [Installation](#installation)\n`; }
+      if (data.usage) { tOC += `* [Usage](#usage)\n`; }
+      if (data.contrib) { tOC += `* [Contributing](#contributing)\n`; }
+      if (data.test) { tOC += `* [Tests](#tests)\n`; }
+      tOC += `* [License](#license)\n`;
+      if (data.credits) { tOC += `* [Credits](#credits)\n`; }
+      tOC += `* [Questions](#questions)\n`;
+
 
 }
