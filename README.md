@@ -1,28 +1,28 @@
 
-    # Lifehacks
+    # hi
    
     ## Description
-    life hacks
+    life and that
 
     ## Installation Instructions
-    true
+    cool
     
     ## Usage Information
-    true
+    very cool
     
     ## Contribution Guidelines
-    false
+    very cool contributions only
 
     ## Test Instructions
-    true
+    run cool tests only
     
     ## License Information
     Apache 2.0
 
     ## Credits
-    true
+    my brain and the internet
 
     ## Github
-    joe
+    JoeCurtis1999
     
   

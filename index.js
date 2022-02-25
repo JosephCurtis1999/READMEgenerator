@@ -42,57 +42,52 @@ const questions = [
         message: 'Please write a description of your project',
     },
     {
-        type: 'confirm',
+        type: 'input',
         name: 'install',
         message: 'Would you like to add any installation notes?',
-    },
+        validate: (answer) => {
+            if (answer === "y") {
+              return "please enter the installation instruction";
+            }
+            return true;
+          },
+        },
+   
     {
         type: 'input',
-        name: 'installNotes',
-        message: `Please add your installation notes`,
-        when: function (answers) {
-            return answers.install;
-        }
-    },
-    {
-        type: 'confirm',
         name: 'usage',
         message: `Do you want to provide the user with usage information?`,
-    },
+        validate: (answer) => {
+            if (answer === "y") {
+              return "please enter the usage information";
+            }
+            return true;
+          },
+        },
+    
     {
         type: 'input',
-        name: 'usageInfo',
-        message: `Please add your usage info`,
-        when: function (answers) {
-            return answers.usage;
-        }
-    },
-    {
-        type: 'confirm',
         name: 'contrib',
         message: `Do you want to add any notes on contributing to the repo?`,
-    },
+        validate: (answer) => {
+            if (answer === "y") {
+              return "please enter the contribution guidelines";
+            }
+            return true;
+          },
+        },
+   
     {
         type: 'input',
-        name: 'contribNotes',
-        message: `Please add your what you want the user to know about contributing to the repo`,
-        when: function (answers) {
-            return answers.contrib;
-        }
-    },
-    {
-        type: 'confirm',
         name: 'test',
         message: `Do you want to add any instructions for running tests?`,
-    },
-    {
-        type: 'input',
-        name: 'testNotes',
-        message: `Please add your instructions for running tests`,
-        when: function (answers) {
-            return answers.test;
-        }
-    },
+        validate: (answer) => {
+            if (answer === "y") {
+              return "please enter the instructions";
+            }
+            return true;
+          },
+        },
     {
         type: 'rawlist',
         name: 'license',
@@ -100,18 +95,16 @@ const questions = [
         choices: ['Apache 2.0', 'BSD 2-Clause', 'BSD 3-Clause', 'GNU AGPLv3.0', 'GNU GPLv2.0', 'GNU GPLv3.0', 'MIT', 'Mozilla Public 2.0'],
     },
     {
-        type: 'confirm',
+        type: 'input',
         name: 'credits',
         message: `Would you like to add any credits to the repo?`,
-    },
-    {
-        type: 'input',
-        name: 'creditData',
-        message: `Please add your credits`,
-        when: function (answers) {
-            return answers.credits;
-        }
-    },
+        validate: (answer) => {
+            if (answer === "y") {
+              return "please write the credits";
+            }
+            return true;
+          },
+        },
     {
         type: 'input',
         name: 'GitHub',
