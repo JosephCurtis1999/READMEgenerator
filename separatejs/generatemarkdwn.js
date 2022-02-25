@@ -53,5 +53,15 @@ const generatemarkdwn = (data) => {
         readmeTemplate += `\n## Usage\n${data.usageInfo}\n`;
       }
 
+      if (data.contrib) {
+        readmeTemplate += `\n## Contributing\n${data.contribNotes}\n`;
+      }
+
+      if (data.test) {
+        readmeTemplate += `\n## Tests\n${data.testNotes}\n`;
+      }
+
+      readmeTemplate += `\n## License \nLicensed under the ${data.license} License. Copyright \u00A9 ${year.getFullYear()}\n`;
+
 
 }
