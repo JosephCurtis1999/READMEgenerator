@@ -135,3 +135,12 @@ const questions = [
         ]
     },
 ]
+
+// write readME file function 
+
+const writeFile = (fileName, data) => {
+    fs.writeFile(fileName, data, (err) =>
+    err? console.error(err) : console.log(success)
+    );
+}
+
