@@ -2,7 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-const generateMarkdown = require('./separatejs/generatemarkdwn.js');
+const generateMarkdown = require('./separatejs/generateMarkdown.js');
 const fileName = './output/README.md';
 
 // a welcome message for the user using chalk 
