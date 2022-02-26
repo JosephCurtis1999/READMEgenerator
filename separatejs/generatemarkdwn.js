@@ -2,41 +2,21 @@
 
 const generateMarkdown = (data) => {
 
-    switch (data.license) {
-        case 'Apache 2.0':
-          licenseBadge = `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
-          break;
-        case 'BSD 2-Clause':
-          licenseBadge = `[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)`;
-          break;
-        case 'BSD 3-Clause':
-          licenseBadge = `[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`;
-          break;
-        case 'GNU AGPLv3.0':
-          licenseBadge = `[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)`;
-          break;
-        case 'GNU GPLv2.0':
-          licenseBadge = `[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
-          break;
-        case 'GNU GPLv3.0':
-          licenseBadge = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
-          break;
-        case 'MIT':
-          licenseBadge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
-          break;
-        case 'Mozilla Public 2.0':
-          licenseBadge = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`;
-          break;
-        default:
-          break;
-      }
-
 
     return `
     # ${data.title}
+    ${renderLicenseBadge(data.license)}
    
     ## Description
     ${data.description}
+
+    ## Table of Contents
+    * [Installation](#installation)
+    * [Usage](#usage)
+    * [Contributing](#contributing)
+    * [Tests](#tests)
+    * [License](#license)
+    * [Credits](#credits)
 
     ## Installation Instructions
     ${data.install}
@@ -50,8 +30,11 @@ const generateMarkdown = (data) => {
     ## Test Instructions
     ${data.test}
     
-    ## License Information
-    ${data.license}
+    ## License
+    ${renderLicenseBadge(data.license)}
+    ${renderLicenseSection(data.license)}
+    ${renderLicenseLink(data.license)}
+
 
     ## Credits
     ${data.credits}
@@ -61,8 +44,32 @@ const generateMarkdown = (data) => {
     
   `;
   
+};
 
+const renderLicenseBadge = (license) => {
+  if (license === "None") {
+    return "";
+  } else {
+    return `![License](${license.licenseBadge})`;
+  }
+};
 
+const renderLicenseLink = (license) => {
+  if (license === "None") {
+    return "";
+  } else {
+    return `${license.licenseLink}`;
+  }
+};
+
+function renderLicenseSection(license) {
+  if (license === "None") {
+    return 'No license selected';
+  } else {
+    console.log(license);
+  } return `
+  This app is under the ${license.title} `;
 }
+
 
 module.exports = generateMarkdown;
