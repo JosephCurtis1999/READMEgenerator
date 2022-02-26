@@ -46,6 +46,7 @@ const generateMarkdown = (data) => {
   
 };
 
+// function to render the license badge
 const renderLicenseBadge = (license) => {
   if (license === "None") {
     return "";
@@ -54,6 +55,7 @@ const renderLicenseBadge = (license) => {
   }
 };
 
+// function to render the license link
 const renderLicenseLink = (license) => {
   if (license === "None") {
     return "";
@@ -62,6 +64,7 @@ const renderLicenseLink = (license) => {
   }
 };
 
+// function to render the license section
 function renderLicenseSection(license) {
   if (license === "None") {
     return 'No license selected';

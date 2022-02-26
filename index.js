@@ -5,6 +5,7 @@ const chalk = require('chalk');
 const generateMarkdown = require('./separatejs/generatemarkdwn.js');
 const fileName = './output/README.md';
 
+// a welcome message for the user using chalk 
 const welcome = [
     { type: 'confirm',
       confirm: '\b',
@@ -13,6 +14,7 @@ const welcome = [
     },
 ];
 
+// letsbegin function to alert the user that its time to start writing the readme
 const letsbegin = chalk.greenBright(`\n
 Let's Generate a README!!!
 //~~~~~~~~~~~~~~~~~~~~~~//
@@ -206,6 +208,7 @@ const writetoFile = (fileName, data) => {
     );
 }
 
+// init function 
 const init = async () => {
     try {
         await inquirer.prompt(welcome);
@@ -218,5 +221,5 @@ const init = async () => {
 }
 
 
-
+// init function called
 init();
